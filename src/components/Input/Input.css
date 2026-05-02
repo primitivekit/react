@@ -1,0 +1,553 @@
+/* 
+ * PrimitiveKit Input Component
+ * Comprehensive CSS Variable System - Every property is customizable
+ * Zero hardcoded values - Complete control via CSS variables
+ */
+
+.input-wrapper {
+  /* ============================================
+   * WRAPPER LAYOUT
+   * ============================================ */
+  --input-wrapper-display: block;
+  --input-wrapper-width: auto;
+  
+  display: var(--input-wrapper-display);
+  width: var(--input-wrapper-width);
+}
+
+.input-wrapper--full-width {
+  --input-wrapper-width: 100%;
+}
+
+.input {
+  /* ============================================
+   * SPACING - Padding
+   * ============================================ */
+  --input-padding-top: var(--input-padding-y, 0.625rem);
+  --input-padding-right: var(--input-padding-x, 1rem);
+  --input-padding-bottom: var(--input-padding-y, 0.625rem);
+  --input-padding-left: var(--input-padding-x, 1rem);
+  
+  /* Padding shortcuts */
+  --input-padding-y: 0.625rem;
+  --input-padding-x: 1rem;
+  
+  /* ============================================
+   * SPACING - Margin
+   * ============================================ */
+  --input-margin-top: var(--input-margin-y, 0);
+  --input-margin-right: var(--input-margin-x, 0);
+  --input-margin-bottom: var(--input-margin-y, 0);
+  --input-margin-left: var(--input-margin-x, 0);
+  
+  /* Margin shortcuts */
+  --input-margin-y: 0;
+  --input-margin-x: 0;
+  
+  /* ============================================
+   * BORDERS - Width
+   * ============================================ */
+  --input-border-top-width: var(--input-border-width, 1px);
+  --input-border-right-width: var(--input-border-width, 1px);
+  --input-border-bottom-width: var(--input-border-width, 1px);
+  --input-border-left-width: var(--input-border-width, 1px);
+  --input-border-width: 1px;
+  
+  /* ============================================
+   * BORDERS - Style
+   * ============================================ */
+  --input-border-top-style: var(--input-border-style, solid);
+  --input-border-right-style: var(--input-border-style, solid);
+  --input-border-bottom-style: var(--input-border-style, solid);
+  --input-border-left-style: var(--input-border-style, solid);
+  --input-border-style: solid;
+  
+  /* ============================================
+   * BORDERS - Color
+   * ============================================ */
+  --input-border-top-color: var(--input-border-color, #d1d5db);
+  --input-border-right-color: var(--input-border-color, #d1d5db);
+  --input-border-bottom-color: var(--input-border-color, #d1d5db);
+  --input-border-left-color: var(--input-border-color, #d1d5db);
+  --input-border-color: #d1d5db;
+  
+  /* ============================================
+   * BORDERS - Radius
+   * ============================================ */
+  --input-border-top-left-radius: var(--input-border-radius, 0.375rem);
+  --input-border-top-right-radius: var(--input-border-radius, 0.375rem);
+  --input-border-bottom-right-radius: var(--input-border-radius, 0.375rem);
+  --input-border-bottom-left-radius: var(--input-border-radius, 0.375rem);
+  --input-border-radius: 0.375rem;
+  
+  /* ============================================
+   * DIMENSIONS
+   * ============================================ */
+  --input-width: 100%;
+  --input-min-width: auto;
+  --input-max-width: none;
+  --input-height: auto;
+  --input-min-height: 2.5rem;
+  --input-max-height: none;
+  
+  /* ============================================
+   * TYPOGRAPHY
+   * ============================================ */
+  --input-font-family: inherit;
+  --input-font-size: 1rem;
+  --input-font-weight: 400;
+  --input-font-style: normal;
+  --input-line-height: 1.5;
+  --input-letter-spacing: normal;
+  --input-text-align: left;
+  --input-text-decoration: none;
+  --input-text-transform: none;
+  
+  /* ============================================
+   * COLORS - Base State
+   * ============================================ */
+  --input-bg-color: #ffffff;
+  --input-text-color: #1f2937;
+  --input-placeholder-color: #9ca3af;
+  --input-placeholder-opacity: 1;
+  
+  /* ============================================
+   * COLORS - Hover State
+   * ============================================ */
+  --input-bg-color-hover: #ffffff;
+  --input-text-color-hover: #1f2937;
+  --input-border-color-hover: #9ca3af;
+  --input-border-top-color-hover: var(--input-border-color-hover);
+  --input-border-right-color-hover: var(--input-border-color-hover);
+  --input-border-bottom-color-hover: var(--input-border-color-hover);
+  --input-border-left-color-hover: var(--input-border-color-hover);
+  
+  /* ============================================
+   * COLORS - Focus State
+   * ============================================ */
+  --input-bg-color-focus: #ffffff;
+  --input-text-color-focus: #1f2937;
+  --input-border-color-focus: #3b82f6;
+  --input-outline-color: transparent;
+  --input-outline-width: 0;
+  --input-outline-style: solid;
+  --input-outline-offset: 0;
+  --input-ring-color: rgba(59, 130, 246, 0.5);
+  --input-ring-width: 3px;
+  --input-ring-offset: 0;
+  
+  /* ============================================
+   * COLORS - Disabled State
+   * ============================================ */
+  --input-bg-color-disabled: #f3f4f6;
+  --input-text-color-disabled: #9ca3af;
+  --input-border-color-disabled: #e5e7eb;
+  --input-opacity-disabled: 0.6;
+  --input-cursor-disabled: not-allowed;
+  
+  /* ============================================
+   * COLORS - Error State
+   * ============================================ */
+  --input-bg-color-error: #ffffff;
+  --input-text-color-error: #1f2937;
+  --input-border-color-error: #ef4444;
+  --input-border-color-error-focus: #dc2626;
+  
+  /* ============================================
+   * COLORS - Success State
+   * ============================================ */
+  --input-bg-color-success: #ffffff;
+  --input-text-color-success: #1f2937;
+  --input-border-color-success: #10b981;
+  --input-border-color-success-focus: #059669;
+  
+  /* ============================================
+   * COLORS - Warning State
+   * ============================================ */
+  --input-bg-color-warning: #ffffff;
+  --input-text-color-warning: #1f2937;
+  --input-border-color-warning: #f59e0b;
+  --input-border-color-warning-focus: #d97706;
+  
+  /* ============================================
+   * SHADOWS
+   * ============================================ */
+  --input-box-shadow: none;
+  --input-box-shadow-hover: none;
+  --input-box-shadow-focus: 0 0 0 var(--input-ring-width) var(--input-ring-color);
+  --input-box-shadow-disabled: none;
+  
+  /* ============================================
+   * TRANSITIONS
+   * ============================================ */
+  --input-transition-property: border-color, box-shadow, background-color;
+  --input-transition-duration: 0.2s;
+  --input-transition-timing: ease-in-out;
+  --input-transition-delay: 0s;
+  
+  /* ============================================
+   * LAYOUT & DISPLAY
+   * ============================================ */
+  --input-display: block;
+  --input-position: relative;
+  --input-cursor: text;
+  --input-overflow: visible;
+  --input-vertical-align: middle;
+  
+  /* ============================================
+   * ICONS/ADDONS
+   * ============================================ */
+  --input-icon-size: 1.25rem;
+  --input-icon-color: #6b7280;
+  --input-icon-spacing: 0.75rem;
+  --input-left-element-width: 2.5rem;
+  --input-right-element-width: 2.5rem;
+  
+  /* ============================================
+   * APPLY ALL STYLES
+   * ============================================ */
+  
+  /* Display & Position */
+  display: var(--input-display);
+  position: var(--input-position);
+  
+  /* Dimensions */
+  width: var(--input-width);
+  min-width: var(--input-min-width);
+  max-width: var(--input-max-width);
+  height: var(--input-height);
+  min-height: var(--input-min-height);
+  max-height: var(--input-max-height);
+  
+  /* Spacing - Padding */
+  padding-top: var(--input-padding-top);
+  padding-right: var(--input-padding-right);
+  padding-bottom: var(--input-padding-bottom);
+  padding-left: var(--input-padding-left);
+  
+  /* Spacing - Margin */
+  margin-top: var(--input-margin-top);
+  margin-right: var(--input-margin-right);
+  margin-bottom: var(--input-margin-bottom);
+  margin-left: var(--input-margin-left);
+  
+  /* Borders - Width */
+  border-top-width: var(--input-border-top-width);
+  border-right-width: var(--input-border-right-width);
+  border-bottom-width: var(--input-border-bottom-width);
+  border-left-width: var(--input-border-left-width);
+  
+  /* Borders - Style */
+  border-top-style: var(--input-border-top-style);
+  border-right-style: var(--input-border-right-style);
+  border-bottom-style: var(--input-border-bottom-style);
+  border-left-style: var(--input-border-left-style);
+  
+  /* Borders - Color */
+  border-top-color: var(--input-border-top-color);
+  border-right-color: var(--input-border-right-color);
+  border-bottom-color: var(--input-border-bottom-color);
+  border-left-color: var(--input-border-left-color);
+  
+  /* Borders - Radius */
+  border-top-left-radius: var(--input-border-top-left-radius);
+  border-top-right-radius: var(--input-border-top-right-radius);
+  border-bottom-right-radius: var(--input-border-bottom-right-radius);
+  border-bottom-left-radius: var(--input-border-bottom-left-radius);
+  
+  /* Colors */
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  
+  /* Typography */
+  font-family: var(--input-font-family);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  font-style: var(--input-font-style);
+  line-height: var(--input-line-height);
+  letter-spacing: var(--input-letter-spacing);
+  text-align: var(--input-text-align);
+  text-decoration: var(--input-text-decoration);
+  text-transform: var(--input-text-transform);
+  
+  /* Effects */
+  box-shadow: var(--input-box-shadow);
+  
+  /* Transitions */
+  transition-property: var(--input-transition-property);
+  transition-duration: var(--input-transition-duration);
+  transition-timing-function: var(--input-transition-timing);
+  transition-delay: var(--input-transition-delay);
+  
+  /* Interaction */
+  cursor: var(--input-cursor);
+  vertical-align: var(--input-vertical-align);
+  overflow: var(--input-overflow);
+  
+  /* Remove default appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* ============================================
+ * PLACEHOLDER
+ * ============================================ */
+.input::placeholder {
+  color: var(--input-placeholder-color);
+  opacity: var(--input-placeholder-opacity);
+}
+
+/* ============================================
+ * HOVER STATE
+ * ============================================ */
+.input:hover:not(:disabled):not(:read-only) {
+  background-color: var(--input-bg-color-hover);
+  color: var(--input-text-color-hover);
+  border-top-color: var(--input-border-top-color-hover);
+  border-right-color: var(--input-border-right-color-hover);
+  border-bottom-color: var(--input-border-bottom-color-hover);
+  border-left-color: var(--input-border-left-color-hover);
+  box-shadow: var(--input-box-shadow-hover);
+}
+
+/* ============================================
+ * FOCUS STATE
+ * ============================================ */
+.input:focus {
+  background-color: var(--input-bg-color-focus);
+  color: var(--input-text-color-focus);
+  border-color: var(--input-border-color-focus);
+  outline: var(--input-outline-width) var(--input-outline-style) var(--input-outline-color);
+  outline-offset: var(--input-outline-offset);
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+/* ============================================
+ * DISABLED STATE
+ * ============================================ */
+.input:disabled,
+.input.input--disabled {
+  background-color: var(--input-bg-color-disabled);
+  color: var(--input-text-color-disabled);
+  border-color: var(--input-border-color-disabled);
+  cursor: var(--input-cursor-disabled);
+  opacity: var(--input-opacity-disabled);
+  box-shadow: var(--input-box-shadow-disabled);
+}
+
+/* ============================================
+ * READONLY STATE
+ * ============================================ */
+.input:read-only,
+.input.input--readonly {
+  cursor: default;
+}
+
+/* ============================================
+ * SIZE VARIANTS
+ * ============================================ */
+.input--small {
+  --input-padding-y: 0.375rem;
+  --input-padding-x: 0.75rem;
+  --input-font-size: 0.875rem;
+  --input-min-height: 2rem;
+}
+
+.input--large {
+  --input-padding-y: 0.875rem;
+  --input-padding-x: 1.25rem;
+  --input-font-size: 1.125rem;
+  --input-min-height: 3rem;
+}
+
+/* ============================================
+ * STYLE VARIANTS
+ * ============================================ */
+
+/* Filled */
+.input--filled {
+  --input-bg-color: #f3f4f6;
+  --input-border-color: transparent;
+  --input-bg-color-hover: #e5e7eb;
+  --input-bg-color-focus: #ffffff;
+  --input-border-color-focus: #3b82f6;
+}
+
+/* Flushed */
+.input--flushed {
+  --input-border-top-width: 0;
+  --input-border-right-width: 0;
+  --input-border-bottom-width: 2px;
+  --input-border-left-width: 0;
+  --input-border-radius: 0;
+  --input-padding-x: 0;
+}
+
+/* Unstyled */
+.input--unstyled {
+  --input-bg-color: transparent;
+  --input-border-width: 0;
+  --input-padding-x: 0;
+  --input-padding-y: 0;
+  --input-min-height: auto;
+  --input-box-shadow-focus: none;
+}
+
+/* ============================================
+ * STATE VARIANTS
+ * ============================================ */
+
+/* Error */
+.input--error {
+  --input-border-color: var(--input-border-color-error);
+  --input-border-color-focus: var(--input-border-color-error-focus);
+  --input-ring-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Success */
+.input--success {
+  --input-border-color: var(--input-border-color-success);
+  --input-border-color-focus: var(--input-border-color-success-focus);
+  --input-ring-color: rgba(16, 185, 129, 0.5);
+}
+
+/* Warning */
+.input--warning {
+  --input-border-color: var(--input-border-color-warning);
+  --input-border-color-focus: var(--input-border-color-warning-focus);
+  --input-ring-color: rgba(245, 158, 11, 0.5);
+}
+
+/* ============================================
+ * WITH ELEMENTS (LEFT/RIGHT)
+ * ============================================ */
+.input--has-left {
+  padding-left: var(--input-left-element-width);
+}
+
+.input--has-right {
+  padding-right: var(--input-right-element-width);
+}
+
+/* ============================================
+ * CONTAINER
+ * ============================================ */
+.input__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================
+ * LEFT/RIGHT ELEMENTS
+ * ============================================ */
+.input__left-element,
+.input__right-element {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--input-icon-size);
+  height: var(--input-icon-size);
+  color: var(--input-icon-color);
+  pointer-events: none;
+}
+
+.input__left-element {
+  left: var(--input-icon-spacing);
+}
+
+.input__right-element {
+  right: var(--input-icon-spacing);
+}
+
+/* ============================================
+ * LABEL
+ * ============================================ */
+.input__label {
+  --input-label-color: #374151;
+  --input-label-font-size: 0.875rem;
+  --input-label-font-weight: 500;
+  --input-label-margin-bottom: 0.375rem;
+  --input-label-color-disabled: #9ca3af;
+  --input-label-color-error: #ef4444;
+  --input-label-color-success: #10b981;
+  --input-label-color-warning: #f59e0b;
+  
+  display: block;
+  color: var(--input-label-color);
+  font-size: var(--input-label-font-size);
+  font-weight: var(--input-label-font-weight);
+  margin-bottom: var(--input-label-margin-bottom);
+}
+
+.input__label--disabled {
+  color: var(--input-label-color-disabled);
+}
+
+.input__label--error {
+  color: var(--input-label-color-error);
+}
+
+.input__label--success {
+  color: var(--input-label-color-success);
+}
+
+.input__label--warning {
+  color: var(--input-label-color-warning);
+}
+
+.input__required-indicator {
+  color: #ef4444;
+  margin-left: 0.125rem;
+}
+
+/* ============================================
+ * HELPER TEXT
+ * ============================================ */
+.input__helper {
+  --input-helper-color: #6b7280;
+  --input-helper-font-size: 0.875rem;
+  --input-helper-margin-top: 0.375rem;
+  --input-helper-color-error: #ef4444;
+  --input-helper-color-success: #10b981;
+  --input-helper-color-warning: #f59e0b;
+  
+  display: block;
+  color: var(--input-helper-color);
+  font-size: var(--input-helper-font-size);
+  margin-top: var(--input-helper-margin-top);
+}
+
+.input__helper--error {
+  color: var(--input-helper-color-error);
+}
+
+.input__helper--success {
+  color: var(--input-helper-color-success);
+}
+
+.input__helper--warning {
+  color: var(--input-helper-color-warning);
+}
+
+/* ============================================
+ * ACCESSIBILITY - High Contrast Mode
+ * ============================================ */
+@media (prefers-contrast: high) {
+  .input {
+    --input-border-width: 2px;
+  }
+}
+
+/* ============================================
+ * ACCESSIBILITY - Reduced Motion
+ * ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    --input-transition-duration: 0.01ms;
+  }
+}
