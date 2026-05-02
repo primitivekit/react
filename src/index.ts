@@ -100,3 +100,12 @@ export type { CollapseProps, CollapseItem, CollapseCSSVariables } from './compon
 
 export { Drawer } from './components/Drawer';
 export type { DrawerProps, DrawerPlacement, DrawerSize, DrawerCSSVariables } from './components/Drawer';
+
+export { Menu } from './components/Menu';
+export type { MenuProps, MenuItem, MenuMode, MenuTheme, MenuCSSVariables } from './components/Menu';
+
+export { Pagination } from './components/Pagination';
+export type { PaginationProps, PaginationSize, PaginationCSSVariables } from './components/Pagination';
+
+export { Steps } from './components/Steps';
+export type { StepsProps, StepItem, StepsDirection, StepsSize, StepStatus, StepsCSSVariables } from './components/Steps';
