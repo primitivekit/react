@@ -88,3 +88,15 @@ export type { AvatarProps, AvatarSize, AvatarShape, AvatarCSSVariables } from '.
 
 export { Tag } from './components/Tag';
 export type { TagProps, TagVariant, TagSize, TagCSSVariables } from './components/Tag';
+
+export { Empty } from './components/Empty';
+export type { EmptyProps, EmptySize, EmptyCSSVariables } from './components/Empty';
+
+export { Image } from './components/Image';
+export type { ImageProps, ImageFit, ImageCSSVariables } from './components/Image';
+
+export { Collapse } from './components/Collapse';
+export type { CollapseProps, CollapseItem, CollapseCSSVariables } from './components/Collapse';
+
+export { Drawer } from './components/Drawer';
+export type { DrawerProps, DrawerPlacement, DrawerSize, DrawerCSSVariables } from './components/Drawer';
