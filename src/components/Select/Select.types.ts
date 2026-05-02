@@ -1,4 +1,4 @@
-import { CSSProperties, SelectHTMLAttributes, ReactNode } from 'react';
+import { CSSProperties, SelectHTMLAttributes } from 'react';
 
 export type SelectSize = 'small' | 'medium' | 'large';
 export type SelectVariant = 'default' | 'filled' | 'flushed' | 'unstyled';
