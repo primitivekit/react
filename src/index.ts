@@ -68,3 +68,9 @@ export type { ModalProps, ModalSize, ModalCSSVariables } from './components/Moda
 
 export { Tooltip } from './components/Tooltip';
 export type { TooltipProps, TooltipPlacement, TooltipVariant, TooltipCSSVariables } from './components/Tooltip';
+
+export { Popover } from './components/Popover';
+export type { PopoverProps, PopoverPlacement, PopoverTrigger, PopoverCSSVariables } from './components/Popover';
+
+export { Dropdown } from './components/Dropdown';
+export type { DropdownProps, DropdownPlacement, DropdownItem, DropdownCSSVariables } from './components/Dropdown';
