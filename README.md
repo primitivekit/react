@@ -5,13 +5,13 @@ Primitive React components with zero hardcoded values. Fully customizable via CS
 ## Installation
 
 ```bash
-npm install @primitivekit/react
+npm install @unstring/primitivekit-react
 ```
 
 ## Usage
 
 ```jsx
-import { Button } from '@primitivekit/react';
+import { Button } from '@unstring/primitivekit-react';
 
 function App() {
   return <Button variant="primary">Click me</Button>;
