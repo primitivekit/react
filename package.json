@@ -1,6 +1,6 @@
 {
   "name": "@primitivekit/react",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Primitive React components with zero hardcoded values. Fully customizable via CSS variables.",
   "type": "module",
   "main": "dist/index.js",
