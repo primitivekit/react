@@ -36,6 +36,9 @@ export type { GridProps, GridCSSVariables } from './components/Grid';
 export { Divider } from './components/Divider';
 export type { DividerProps, DividerOrientation, DividerVariant, DividerCSSVariables } from './components/Divider';
 
+export { Space } from './components/Space';
+export type { SpaceProps, SpaceSize, SpaceDirection, SpaceAlign, SpaceCSSVariables } from './components/Space';
+
 // Feedback Components
 export { Badge } from './components/Badge';
 export type { BadgeProps, BadgeVariant, BadgeColorScheme, BadgeSize, BadgeCSSVariables } from './components/Badge';
@@ -74,3 +77,14 @@ export type { PopoverProps, PopoverPlacement, PopoverTrigger, PopoverCSSVariable
 
 export { Dropdown } from './components/Dropdown';
 export type { DropdownProps, DropdownPlacement, DropdownItem, DropdownCSSVariables } from './components/Dropdown';
+
+// General Components
+export { Typography } from './components/Typography';
+export type { TypographyProps, TypographyVariant, TypographyWeight, TypographyAlign, TypographyCSSVariables } from './components/Typography';
+
+// Data Display Components
+export { Avatar } from './components/Avatar';
+export type { AvatarProps, AvatarSize, AvatarShape, AvatarCSSVariables } from './components/Avatar';
+
+export { Tag } from './components/Tag';
+export type { TagProps, TagVariant, TagSize, TagCSSVariables } from './components/Tag';
