@@ -1,5 +1,5 @@
 {
-  "name": "@unstring/primitivekit-react",
+  "name": "@primitivekit/react",
   "version": "1.0.0",
   "description": "Primitive React components with zero hardcoded values. Fully customizable via CSS variables.",
   "type": "module",
