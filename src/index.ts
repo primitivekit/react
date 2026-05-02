@@ -109,3 +109,15 @@ export type { PaginationProps, PaginationSize, PaginationCSSVariables } from './
 
 export { Steps } from './components/Steps';
 export type { StepsProps, StepItem, StepsDirection, StepsSize, StepStatus, StepsCSSVariables } from './components/Steps';
+
+export { Form, FormItem } from './components/Form';
+export type { FormProps, FormItemProps, FormLayout, FormSize, FormCSSVariables } from './components/Form';
+
+export { Slider } from './components/Slider';
+export type { SliderProps, SliderSize, SliderCSSVariables } from './components/Slider';
+
+export { Upload } from './components/Upload';
+export type { UploadProps, UploadFile, UploadListType, UploadCSSVariables } from './components/Upload';
+
+export { Table } from './components/Table';
+export type { TableProps, TableColumn, TableSize, SortOrder, TableCSSVariables } from './components/Table';
