@@ -1,7 +1,8 @@
 import React from 'react';
+import type { ButtonProps } from './Button.types';
 import './Button.css';
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -35,7 +36,7 @@ const Button = ({
 
   const isDisabled = disabled || loading;
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!isDisabled && onClick) {
       onClick(e);
     }

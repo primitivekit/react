@@ -355,34 +355,3 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
    */
   rightIcon?: ReactNode;
 }
-
-/**
- * Versatile, accessible button component with comprehensive customization
- * 
- * @example
- * ```tsx
- * // Basic usage
- * <Button>Click me</Button>
- * 
- * // With variant and size
- * <Button variant="primary" size="large">Large Primary</Button>
- * 
- * // With custom CSS variables
- * <Button style={{
- *   '--btn-bg-color': '#8b5cf6',
- *   '--btn-border-radius': '2rem',
- *   '--btn-padding-x': '2.5rem'
- * }}>
- *   Custom Purple
- * </Button>
- * 
- * // With loading state
- * <Button loading loadingText="Saving...">Save</Button>
- * 
- * // With icons
- * <Button leftIcon={<SaveIcon />}>Save</Button>
- * ```
- */
-declare const Button: React.FC<ButtonProps>;
-
-export default Button;
