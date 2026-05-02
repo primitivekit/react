@@ -4,6 +4,22 @@ import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from '@rollup/plugin-typescript';
+import { copyFileSync, mkdirSync } from 'fs';
+import { dirname } from 'path';
+
+// Plugin to copy tokens.css to dist
+const copyTokensCSS = {
+  name: 'copy-tokens-css',
+  writeBundle() {
+    try {
+      mkdirSync('dist/tokens', { recursive: true });
+      copyFileSync('src/tokens/tokens.css', 'dist/tokens/tokens.css');
+      console.log('✓ Copied tokens.css to dist/tokens/');
+    } catch (err) {
+      console.error('Error copying tokens.css:', err);
+    }
+  }
+};
 
 export default {
   input: 'src/index.ts',
@@ -39,7 +55,8 @@ export default {
       inject: true,
       minimize: true
     }),
-    terser()
+    terser(),
+    copyTokensCSS
   ],
   external: ['react', 'react-dom']
 };
