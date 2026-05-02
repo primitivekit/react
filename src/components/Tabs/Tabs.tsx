@@ -34,7 +34,7 @@ const Tabs: React.FC<TabsProps> = ({
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent, tabId: string, index: number, disabled?: boolean) => {
+  const handleKeyDown = (e: React.KeyboardEvent, index: number, disabled?: boolean) => {
     if (disabled) return;
 
     let nextIndex = index;
@@ -103,8 +103,6 @@ const Tabs: React.FC<TabsProps> = ({
     className
   ].filter(Boolean).join(' ');
 
-  const activeTabContent = items.find(item => item.id === activeTab)?.content;
-
   return (
     <div className={tabsClasses} style={style} {...props}>
       <div
@@ -133,7 +131,7 @@ const Tabs: React.FC<TabsProps> = ({
               tabIndex={isActive ? 0 : -1}
               disabled={item.disabled}
               onClick={() => handleTabClick(item.id, item.disabled)}
-              onKeyDown={(e) => handleKeyDown(e, item.id, index, item.disabled)}
+              onKeyDown={(e) => handleKeyDown(e, index, item.disabled)}
             >
               {item.icon && (
                 <span className="tabs__tab-icon" aria-hidden="true">

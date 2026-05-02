@@ -16,7 +16,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
