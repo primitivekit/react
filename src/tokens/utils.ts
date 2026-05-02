@@ -209,3 +209,241 @@ export function removeTheme(element: HTMLElement, theme: Record<string, string>)
     element.style.removeProperty(key);
   });
 }
+
+/**
+ * Get grid column span
+ * @param columns - Number of columns (1-12)
+ * @returns CSS grid-column value
+ */
+export function getGridColumns(columns: keyof typeof designTokens.grid.columns): string {
+  return `span ${designTokens.grid.columns[columns]} / span ${designTokens.grid.columns[columns]}`;
+}
+
+/**
+ * Get container max width
+ * @param size - Container size
+ * @returns Max width value
+ */
+export function getContainerMaxWidth(size: keyof typeof designTokens.container.maxWidth): string {
+  return designTokens.container.maxWidth[size];
+}
+
+/**
+ * Apply gradient background
+ * @param element - HTML element
+ * @param type - Gradient type ('linear', 'radial', 'mesh')
+ * @param variant - Gradient variant
+ */
+export function applyGradient(
+  element: HTMLElement,
+  type: 'linear' | 'radial' | 'mesh',
+  variant: string
+): void {
+  const gradient = (designTokens.gradient as any)[type]?.[variant];
+  if (gradient) {
+    element.style.background = gradient;
+  }
+}
+
+/**
+ * Apply focus ring styles
+ * @param element - HTML element
+ * @param color - Focus ring color variant
+ * @param width - Focus ring width variant
+ */
+export function applyFocusRing(
+  element: HTMLElement,
+  color: keyof typeof designTokens.focusRing.color = 'primary',
+  width: keyof typeof designTokens.focusRing.width = 'base'
+): void {
+  const focusColor = designTokens.focusRing.color[color];
+  const focusWidth = designTokens.focusRing.width[width];
+  const focusStyle = designTokens.focusRing.style;
+  
+  element.style.outline = `${focusWidth} ${focusStyle} ${focusColor}`;
+  element.style.outlineOffset = designTokens.focusRing.offset[width];
+}
+
+/**
+ * Get icon size
+ * @param size - Icon size variant
+ * @returns Icon size in pixels
+ */
+export function getIconSize(size: keyof typeof designTokens.iconSize): string {
+  return designTokens.iconSize[size];
+}
+
+/**
+ * Apply motion transform
+ * @param element - HTML element
+ * @param type - Transform type ('scale', 'rotate', 'translate', 'skew')
+ * @param value - Transform value
+ */
+export function applyMotion(
+  element: HTMLElement,
+  type: 'scale' | 'rotate' | 'translate' | 'skew',
+  value: string
+): void {
+  const motionValue = (designTokens.motion as any)[type]?.[value];
+  if (motionValue) {
+    switch (type) {
+      case 'scale':
+        element.style.transform = `scale(${motionValue})`;
+        break;
+      case 'rotate':
+        element.style.transform = `rotate(${motionValue})`;
+        break;
+      case 'translate':
+        element.style.transform = `translate(${motionValue})`;
+        break;
+      case 'skew':
+        element.style.transform = `skew(${motionValue})`;
+        break;
+    }
+  }
+}
+
+/**
+ * Apply filter effect
+ * @param element - HTML element
+ * @param type - Filter type
+ * @param value - Filter value
+ */
+export function applyFilter(
+  element: HTMLElement,
+  type: keyof typeof designTokens.filter,
+  value: string
+): void {
+  const filterValue = (designTokens.filter as any)[type]?.[value];
+  if (filterValue) {
+    element.style.filter = filterValue;
+  }
+}
+
+/**
+ * Apply blur effect
+ * @param element - HTML element
+ * @param amount - Blur amount
+ */
+export function applyBlur(element: HTMLElement, amount: keyof typeof designTokens.blur): void {
+  element.style.backdropFilter = `blur(${designTokens.blur[amount]})`;
+}
+
+/**
+ * Set aspect ratio
+ * @param element - HTML element
+ * @param ratio - Aspect ratio variant
+ */
+export function setAspectRatio(element: HTMLElement, ratio: keyof typeof designTokens.aspectRatio): void {
+  element.style.aspectRatio = designTokens.aspectRatio[ratio];
+}
+
+/**
+ * Apply accessibility focus visible styles
+ * @param element - HTML element
+ */
+export function applyFocusVisible(element: HTMLElement): void {
+  element.style.outline = designTokens.accessibility.focusVisible.outline;
+  element.style.outlineOffset = designTokens.accessibility.focusVisible.outlineOffset;
+}
+
+/**
+ * Apply screen reader only styles
+ * @param element - HTML element
+ */
+export function applySrOnly(element: HTMLElement): void {
+  const srStyles = designTokens.accessibility.srOnly;
+  Object.entries(srStyles).forEach(([key, value]) => {
+    (element.style as any)[key] = value;
+  });
+}
+
+/**
+ * Check if reduced motion is preferred
+ * @returns Whether reduced motion is preferred
+ */
+export function prefersReducedMotion(): boolean {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+/**
+ * Get safe animation duration (respects reduced motion)
+ * @param duration - Duration variant
+ * @returns Duration value (respects reduced motion preference)
+ */
+export function getSafeAnimationDuration(
+  duration: keyof typeof designTokens.animation.duration
+): string {
+  if (prefersReducedMotion()) {
+    return designTokens.accessibility.reducedMotion.duration;
+  }
+  return designTokens.animation.duration[duration];
+}
+
+/**
+ * Get safe animation easing (respects reduced motion)
+ * @param easing - Easing variant
+ * @returns Easing value (respects reduced motion preference)
+ */
+export function getSafeAnimationEasing(
+  easing: keyof typeof designTokens.animation.easing
+): string {
+  if (prefersReducedMotion()) {
+    return designTokens.accessibility.reducedMotion.easing;
+  }
+  return designTokens.animation.easing[easing];
+}
+
+/**
+ * Apply transform with perspective
+ * @param element - HTML element
+ * @param transform - Transform value
+ * @param perspective - Perspective size
+ */
+export function applyTransformWithPerspective(
+  element: HTMLElement,
+  transform: string,
+  perspective: keyof typeof designTokens.transform.perspective = 'base'
+): void {
+  element.style.perspective = designTokens.transform.perspective[perspective];
+  element.style.transform = transform;
+}
+
+/**
+ * Get viewport-based size
+ * @param unit - Viewport unit ('vw', 'vh', 'vmin', 'vmax')
+ * @param value - Size value
+ * @returns Viewport-based size string
+ */
+export function getViewportSize(
+  unit: 'vw' | 'vh' | 'vmin' | 'vmax',
+  value: string
+): string {
+  return (designTokens.viewport as any)[unit]?.[value] || '0';
+}
+
+/**
+ * Create responsive container
+ * @param element - HTML element
+ * @param maxWidth - Max width variant
+ * @param padding - Padding variant
+ */
+export function createResponsiveContainer(
+  element: HTMLElement,
+  maxWidth: keyof typeof designTokens.container.maxWidth = 'xl',
+  padding: keyof typeof designTokens.container.padding = 'md'
+): void {
+  element.style.maxWidth = designTokens.container.maxWidth[maxWidth];
+  element.style.padding = designTokens.container.padding[padding];
+  element.style.marginLeft = 'auto';
+  element.style.marginRight = 'auto';
+}
+
+/**
+ * Apply touch target minimum size (WCAG 2.5.5)
+ * @param element - HTML element
+ */
+export function applyTouchTarget(element: HTMLElement): void {
+  element.style.minWidth = designTokens.accessibility.touchTarget.minWidth;
+  element.style.minHeight = designTokens.accessibility.touchTarget.minHeight;
+}

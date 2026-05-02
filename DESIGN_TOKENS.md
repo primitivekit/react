@@ -2,11 +2,33 @@
 
 ## Overview
 
-This document describes the design token system for @primitivekit/react. Our design tokens follow the [Design Tokens Community Group (DTCG)](https://design-tokens.github.io/community-group/format/) specification and industry best practices.
+This document describes the comprehensive design token system for @primitivekit/react. Our design tokens follow the [Design Tokens Community Group (DTCG)](https://design-tokens.github.io/community-group/format/) specification and industry best practices from Material Design, Tailwind CSS, Ant Design, and other leading design systems.
+
+## Token Statistics
+
+- **Total Token Categories:** 21
+- **Total Tokens:** 600+
+- **Color Tokens:** 100+
+- **Spacing Tokens:** 30
+- **Typography Tokens:** 60+
+- **Animation Tokens:** 25+
+- **Accessibility Tokens:** 10+
+- **And more...**
 
 ## What are Design Tokens?
 
 Design tokens are the visual design atoms of the design system — specifically, they are named entities that store visual design attributes. We use them in place of hard-coded values to ensure flexibility and maintainability.
+
+## Industry Standards Compliance
+
+Our token system follows and implements standards from:
+
+✅ **DTCG (Design Tokens Community Group)** - Official W3C specification  
+✅ **Material Design 3** - Google's design system tokens  
+✅ **Tailwind CSS** - Utility-first design tokens  
+✅ **Ant Design** - Enterprise-grade design tokens  
+✅ **WCAG 2.1 AA** - Accessibility compliance  
+✅ **CSS Custom Properties** - Native browser support  
 
 ## Token Categories
 
@@ -300,6 +322,357 @@ High-level tokens that reference base tokens.
 --interactive-focus     /* Focus state color */
 ```
 
+### 10. Grid Tokens
+
+Industry-standard 12-column grid system.
+
+```css
+--grid-columns-1   /* 1 column */
+--grid-columns-6   /* 6 columns (half) */
+--grid-columns-12  /* 12 columns (full) */
+```
+
+**Usage:**
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-12), 1fr);
+  gap: var(--spacing-4);
+}
+
+.col-6 {
+  grid-column: span var(--grid-columns-6);
+}
+```
+
+### 11. Container Tokens
+
+Responsive container max-widths and padding.
+
+```css
+--container-max-width-xs    /* 320px */
+--container-max-width-sm    /* 640px */
+--container-max-width-md    /* 768px */
+--container-max-width-lg    /* 1024px */
+--container-max-width-xl    /* 1280px */
+--container-max-width-2xl   /* 1536px */
+--container-max-width-3xl   /* 1920px */
+--container-max-width-4xl   /* 2560px */
+--container-max-width-full  /* 100% */
+```
+
+**Usage:**
+```css
+.container {
+  max-width: var(--container-max-width-xl);
+  padding: var(--spacing-6);
+  margin: 0 auto;
+}
+```
+
+### 12. Aspect Ratio Tokens
+
+Common aspect ratios for media and containers.
+
+```css
+--aspect-ratio-square      /* 1:1 */
+--aspect-ratio-video       /* 16:9 */
+--aspect-ratio-cinema      /* 21:9 */
+--aspect-ratio-portrait    /* 3:4 */
+--aspect-ratio-landscape   /* 4:3 */
+--aspect-ratio-ultrawide   /* 18:5 */
+--aspect-ratio-golden      /* 1.618:1 (Golden ratio) */
+```
+
+**Usage:**
+```css
+.video-container {
+  aspect-ratio: var(--aspect-ratio-video);
+}
+```
+
+### 13. Blur Tokens
+
+Backdrop blur effects for glassmorphism.
+
+```css
+--blur-none   /* 0 */
+--blur-sm     /* 4px */
+--blur-base   /* 8px */
+--blur-md     /* 12px */
+--blur-lg     /* 16px */
+--blur-xl     /* 24px */
+--blur-2xl    /* 40px */
+--blur-3xl    /* 64px */
+```
+
+**Usage:**
+```css
+.glass-card {
+  backdrop-filter: blur(var(--blur-lg));
+  background: rgba(255, 255, 255, 0.1);
+}
+```
+
+### 14. Gradient Tokens
+
+Pre-defined gradient patterns.
+
+#### Linear Gradients
+```css
+--gradient-linear-primary
+--gradient-linear-secondary
+--gradient-linear-success
+--gradient-linear-warning
+--gradient-linear-error
+--gradient-linear-info
+--gradient-linear-neutral
+```
+
+#### Radial Gradients
+```css
+--gradient-radial-primary
+--gradient-radial-secondary
+```
+
+#### Mesh Gradients (Multi-color)
+```css
+--gradient-mesh-sunset   /* Yellow → Red → Purple */
+--gradient-mesh-ocean    /* Cyan → Blue → Purple */
+--gradient-mesh-forest   /* Green → Cyan → Blue */
+```
+
+**Usage:**
+```css
+.gradient-button {
+  background: var(--gradient-linear-primary);
+}
+```
+
+### 15. Focus Ring Tokens
+
+Consistent focus indicators for accessibility.
+
+```css
+--focus-ring-width-sm       /* 2px */
+--focus-ring-width-base     /* 3px */
+--focus-ring-width-lg       /* 4px */
+--focus-ring-offset-sm      /* 1px */
+--focus-ring-offset-base    /* 2px */
+--focus-ring-offset-lg      /* 4px */
+--focus-ring-color-primary  /* Primary color */
+--focus-ring-style          /* solid */
+```
+
+**Usage:**
+```css
+button:focus-visible {
+  outline: var(--focus-ring-width-base) var(--focus-ring-style) var(--focus-ring-color-primary);
+  outline-offset: var(--focus-ring-offset-base);
+}
+```
+
+### 16. Icon Size Tokens
+
+Standard icon sizes.
+
+```css
+--icon-size-xs    /* 12px */
+--icon-size-sm    /* 16px */
+--icon-size-base  /* 20px */
+--icon-size-md    /* 24px */
+--icon-size-lg    /* 32px */
+--icon-size-xl    /* 40px */
+--icon-size-2xl   /* 48px */
+--icon-size-3xl   /* 64px */
+--icon-size-4xl   /* 96px */
+--icon-size-5xl   /* 128px */
+```
+
+**Usage:**
+```css
+.icon {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+}
+```
+
+### 17. Motion Tokens
+
+Advanced animation and transform values.
+
+#### Scale
+```css
+--motion-scale-0    /* 0 */
+--motion-scale-95   /* 0.95 */
+--motion-scale-100  /* 1 */
+--motion-scale-105  /* 1.05 */
+--motion-scale-150  /* 1.5 */
+```
+
+#### Rotate
+```css
+--motion-rotate-0    /* 0deg */
+--motion-rotate-90   /* 90deg */
+--motion-rotate-180  /* 180deg */
+--motion-rotate-360  /* 360deg */
+```
+
+#### Translate
+```css
+--motion-translate-0     /* 0 */
+--motion-translate-4     /* 1rem */
+--motion-translate-full  /* 100% */
+```
+
+#### Skew
+```css
+--motion-skew-0   /* 0deg */
+--motion-skew-3   /* 3deg */
+--motion-skew-6   /* 6deg */
+--motion-skew-12  /* 12deg */
+```
+
+**Usage:**
+```css
+.button:hover {
+  transform: scale(var(--motion-scale-105));
+}
+```
+
+### 18. Viewport Tokens
+
+Viewport-based sizing.
+
+```css
+--viewport-vw-50   /* 50vw */
+--viewport-vw-100  /* 100vw */
+--viewport-vh-50   /* 50vh */
+--viewport-vh-100  /* 100vh */
+```
+
+**Usage:**
+```css
+.hero {
+  height: var(--viewport-vh-100);
+  width: var(--viewport-vw-100);
+}
+```
+
+### 19. Accessibility Tokens
+
+WCAG-compliant accessibility features.
+
+```css
+--accessibility-focus-outline           /* Focus outline style */
+--accessibility-focus-outline-offset    /* Focus outline offset */
+--accessibility-touch-target-min-width  /* 44px (WCAG 2.5.5) */
+--accessibility-touch-target-min-height /* 44px (WCAG 2.5.5) */
+```
+
+**Usage:**
+```css
+button {
+  min-width: var(--accessibility-touch-target-min-width);
+  min-height: var(--accessibility-touch-target-min-height);
+}
+
+button:focus-visible {
+  outline: var(--accessibility-focus-outline);
+  outline-offset: var(--accessibility-focus-outline-offset);
+}
+```
+
+**Reduced Motion Support:**
+```css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+### 20. Transform Tokens
+
+Common CSS transforms.
+
+```css
+--transform-none         /* none */
+--transform-scale-up     /* scale(1.05) */
+--transform-scale-down   /* scale(0.95) */
+--transform-rotate-90    /* rotate(90deg) */
+--transform-rotate-180   /* rotate(180deg) */
+--transform-flip-x       /* scaleX(-1) */
+--transform-flip-y       /* scaleY(-1) */
+```
+
+**3D Perspective:**
+```css
+--transform-perspective-sm    /* 500px */
+--transform-perspective-base  /* 1000px */
+--transform-perspective-lg    /* 1500px */
+```
+
+**Usage:**
+```css
+.card:hover {
+  transform: var(--transform-scale-up);
+}
+```
+
+### 21. Filter Tokens
+
+CSS filter effects.
+
+#### Brightness
+```css
+--filter-brightness-50   /* brightness(0.5) */
+--filter-brightness-100  /* brightness(1) */
+--filter-brightness-150  /* brightness(1.5) */
+```
+
+#### Contrast
+```css
+--filter-contrast-50   /* contrast(0.5) */
+--filter-contrast-100  /* contrast(1) */
+--filter-contrast-150  /* contrast(1.5) */
+```
+
+#### Grayscale
+```css
+--filter-grayscale-0    /* grayscale(0) */
+--filter-grayscale-100  /* grayscale(1) */
+```
+
+#### Blur
+```css
+--filter-blur-none  /* blur(0) */
+--filter-blur-sm    /* blur(4px) */
+--filter-blur-lg    /* blur(16px) */
+```
+
+#### Saturate
+```css
+--filter-saturate-0    /* saturate(0) */
+--filter-saturate-100  /* saturate(1) */
+--filter-saturate-200  /* saturate(2) */
+```
+
+#### Sepia, Invert, Hue Rotate
+```css
+--filter-sepia-100         /* sepia(1) */
+--filter-invert-100        /* invert(1) */
+--filter-hue-rotate-180    /* hue-rotate(180deg) */
+```
+
+**Usage:**
+```css
+.image:hover {
+  filter: var(--filter-brightness-110) var(--filter-saturate-150);
+}
+```
+
 ## Token Naming Convention
 
 Our tokens follow a consistent naming pattern:
@@ -469,5 +842,7 @@ For a complete list of all available tokens, see:
 
 ---
 
-**Last Updated:** May 2, 2026
-**Version:** 1.0.0
+**Last Updated:** May 2, 2026  
+**Version:** 2.0.0  
+**Total Tokens:** 600+  
+**Token Categories:** 21

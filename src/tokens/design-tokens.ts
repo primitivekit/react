@@ -373,6 +373,400 @@ export const breakpointTokens = {
 } as const;
 
 // ============================================================================
+// GRID TOKENS
+// ============================================================================
+
+export const gridTokens = {
+  // Grid Columns
+  columns: {
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    10: '10',
+    11: '11',
+    12: '12',
+  },
+
+  // Grid Gap
+  gap: {
+    0: '0',
+    1: spacingTokens[1],
+    2: spacingTokens[2],
+    3: spacingTokens[3],
+    4: spacingTokens[4],
+    5: spacingTokens[5],
+    6: spacingTokens[6],
+    8: spacingTokens[8],
+    10: spacingTokens[10],
+    12: spacingTokens[12],
+  },
+} as const;
+
+// ============================================================================
+// CONTAINER TOKENS
+// ============================================================================
+
+export const containerTokens = {
+  // Max Width
+  maxWidth: {
+    xs: '320px',
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+    '3xl': '1920px',
+    '4xl': '2560px',
+    full: '100%',
+  },
+
+  // Padding
+  padding: {
+    sm: spacingTokens[4],
+    md: spacingTokens[6],
+    lg: spacingTokens[8],
+  },
+} as const;
+
+// ============================================================================
+// ASPECT RATIO TOKENS
+// ============================================================================
+
+export const aspectRatioTokens = {
+  square: '1 / 1',
+  video: '16 / 9',
+  cinema: '21 / 9',
+  portrait: '3 / 4',
+  landscape: '4 / 3',
+  ultrawide: '18 / 5',
+  golden: '1.618 / 1',
+} as const;
+
+// ============================================================================
+// BLUR TOKENS
+// ============================================================================
+
+export const blurTokens = {
+  none: '0',
+  sm: '4px',
+  base: '8px',
+  md: '12px',
+  lg: '16px',
+  xl: '24px',
+  '2xl': '40px',
+  '3xl': '64px',
+} as const;
+
+// ============================================================================
+// GRADIENT TOKENS
+// ============================================================================
+
+export const gradientTokens = {
+  // Linear Gradients
+  linear: {
+    primary: `linear-gradient(135deg, rgba(59, 130, 246, 1) 0%, rgba(37, 99, 235, 1) 100%)`,
+    secondary: `linear-gradient(135deg, rgba(168, 85, 247, 1) 0%, rgba(147, 51, 234, 1) 100%)`,
+    success: `linear-gradient(135deg, rgba(34, 197, 94, 1) 0%, rgba(22, 163, 74, 1) 100%)`,
+    warning: `linear-gradient(135deg, rgba(245, 158, 11, 1) 0%, rgba(217, 119, 6, 1) 100%)`,
+    error: `linear-gradient(135deg, rgba(239, 68, 68, 1) 0%, rgba(220, 38, 38, 1) 100%)`,
+    info: `linear-gradient(135deg, rgba(14, 165, 233, 1) 0%, rgba(2, 132, 199, 1) 100%)`,
+    neutral: `linear-gradient(135deg, rgba(115, 115, 115, 1) 0%, rgba(64, 64, 64, 1) 100%)`,
+  },
+
+  // Radial Gradients
+  radial: {
+    primary: `radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(37, 99, 235, 1) 100%)`,
+    secondary: `radial-gradient(circle, rgba(168, 85, 247, 1) 0%, rgba(147, 51, 234, 1) 100%)`,
+  },
+
+  // Mesh Gradients (Multi-color)
+  mesh: {
+    sunset: `linear-gradient(135deg, rgba(251, 191, 36, 1) 0%, rgba(239, 68, 68, 1) 50%, rgba(168, 85, 247, 1) 100%)`,
+    ocean: `linear-gradient(135deg, rgba(14, 165, 233, 1) 0%, rgba(59, 130, 246, 1) 50%, rgba(168, 85, 247, 1) 100%)`,
+    forest: `linear-gradient(135deg, rgba(34, 197, 94, 1) 0%, rgba(14, 165, 233, 1) 50%, rgba(59, 130, 246, 1) 100%)`,
+  },
+} as const;
+
+// ============================================================================
+// FOCUS RING TOKENS
+// ============================================================================
+
+export const focusRingTokens = {
+  width: {
+    sm: '2px',
+    base: '3px',
+    lg: '4px',
+  },
+  offset: {
+    sm: '1px',
+    base: '2px',
+    lg: '4px',
+  },
+  color: {
+    primary: colorTokens.brand.primary[500],
+    secondary: colorTokens.brand.secondary[500],
+    success: colorTokens.semantic.success[500],
+    warning: colorTokens.semantic.warning[500],
+    error: colorTokens.semantic.error[500],
+    info: colorTokens.semantic.info[500],
+  },
+  style: 'solid',
+} as const;
+
+// ============================================================================
+// ICON SIZE TOKENS
+// ============================================================================
+
+export const iconSizeTokens = {
+  xs: '12px',
+  sm: '16px',
+  base: '20px',
+  md: '24px',
+  lg: '32px',
+  xl: '40px',
+  '2xl': '48px',
+  '3xl': '64px',
+  '4xl': '96px',
+  '5xl': '128px',
+} as const;
+
+// ============================================================================
+// MOTION TOKENS (Advanced Animation)
+// ============================================================================
+
+export const motionTokens = {
+  // Scale
+  scale: {
+    0: '0',
+    50: '0.5',
+    75: '0.75',
+    90: '0.9',
+    95: '0.95',
+    100: '1',
+    105: '1.05',
+    110: '1.1',
+    125: '1.25',
+    150: '1.5',
+  },
+
+  // Rotate
+  rotate: {
+    0: '0deg',
+    45: '45deg',
+    90: '90deg',
+    180: '180deg',
+    270: '270deg',
+    360: '360deg',
+  },
+
+  // Translate
+  translate: {
+    0: '0',
+    1: '0.25rem',
+    2: '0.5rem',
+    3: '0.75rem',
+    4: '1rem',
+    full: '100%',
+  },
+
+  // Skew
+  skew: {
+    0: '0deg',
+    3: '3deg',
+    6: '6deg',
+    12: '12deg',
+  },
+} as const;
+
+// ============================================================================
+// VIEWPORT TOKENS
+// ============================================================================
+
+export const viewportTokens = {
+  // Viewport Width
+  vw: {
+    10: '10vw',
+    20: '20vw',
+    25: '25vw',
+    30: '30vw',
+    40: '40vw',
+    50: '50vw',
+    60: '60vw',
+    70: '70vw',
+    75: '75vw',
+    80: '80vw',
+    90: '90vw',
+    100: '100vw',
+  },
+
+  // Viewport Height
+  vh: {
+    10: '10vh',
+    20: '20vh',
+    25: '25vh',
+    30: '30vh',
+    40: '40vh',
+    50: '50vh',
+    60: '60vh',
+    70: '70vh',
+    75: '75vh',
+    80: '80vh',
+    90: '90vh',
+    100: '100vh',
+  },
+
+  // Viewport Min/Max
+  vmin: {
+    50: '50vmin',
+    100: '100vmin',
+  },
+  vmax: {
+    50: '50vmax',
+    100: '100vmax',
+  },
+} as const;
+
+// ============================================================================
+// ACCESSIBILITY TOKENS
+// ============================================================================
+
+export const accessibilityTokens = {
+  // Focus Visible
+  focusVisible: {
+    outline: `${focusRingTokens.width.base} ${focusRingTokens.style} ${focusRingTokens.color.primary}`,
+    outlineOffset: focusRingTokens.offset.base,
+  },
+
+  // Reduced Motion
+  reducedMotion: {
+    duration: '0.01ms',
+    easing: 'linear',
+  },
+
+  // Screen Reader Only
+  srOnly: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    borderWidth: '0',
+  },
+
+  // Touch Target Size (WCAG 2.5.5)
+  touchTarget: {
+    minWidth: '44px',
+    minHeight: '44px',
+  },
+} as const;
+
+// ============================================================================
+// TRANSFORM TOKENS
+// ============================================================================
+
+export const transformTokens = {
+  // Common Transforms
+  none: 'none',
+  scaleUp: 'scale(1.05)',
+  scaleDown: 'scale(0.95)',
+  rotate90: 'rotate(90deg)',
+  rotate180: 'rotate(180deg)',
+  rotate270: 'rotate(270deg)',
+  flipX: 'scaleX(-1)',
+  flipY: 'scaleY(-1)',
+  
+  // 3D Transforms
+  perspective: {
+    sm: '500px',
+    base: '1000px',
+    lg: '1500px',
+  },
+} as const;
+
+// ============================================================================
+// FILTER TOKENS
+// ============================================================================
+
+export const filterTokens = {
+  // Brightness
+  brightness: {
+    50: 'brightness(0.5)',
+    75: 'brightness(0.75)',
+    90: 'brightness(0.9)',
+    100: 'brightness(1)',
+    110: 'brightness(1.1)',
+    125: 'brightness(1.25)',
+    150: 'brightness(1.5)',
+  },
+
+  // Contrast
+  contrast: {
+    50: 'contrast(0.5)',
+    75: 'contrast(0.75)',
+    100: 'contrast(1)',
+    125: 'contrast(1.25)',
+    150: 'contrast(1.5)',
+  },
+
+  // Grayscale
+  grayscale: {
+    0: 'grayscale(0)',
+    50: 'grayscale(0.5)',
+    100: 'grayscale(1)',
+  },
+
+  // Blur
+  blur: {
+    none: 'blur(0)',
+    sm: 'blur(4px)',
+    base: 'blur(8px)',
+    md: 'blur(12px)',
+    lg: 'blur(16px)',
+    xl: 'blur(24px)',
+  },
+
+  // Saturate
+  saturate: {
+    0: 'saturate(0)',
+    50: 'saturate(0.5)',
+    100: 'saturate(1)',
+    150: 'saturate(1.5)',
+    200: 'saturate(2)',
+  },
+
+  // Sepia
+  sepia: {
+    0: 'sepia(0)',
+    50: 'sepia(0.5)',
+    100: 'sepia(1)',
+  },
+
+  // Invert
+  invert: {
+    0: 'invert(0)',
+    50: 'invert(0.5)',
+    100: 'invert(1)',
+  },
+
+  // Hue Rotate
+  hueRotate: {
+    0: 'hue-rotate(0deg)',
+    90: 'hue-rotate(90deg)',
+    180: 'hue-rotate(180deg)',
+    270: 'hue-rotate(270deg)',
+  },
+} as const;
+
+// ============================================================================
 // COMPONENT-SPECIFIC TOKENS
 // ============================================================================
 
@@ -511,6 +905,18 @@ export const designTokens = {
   breakpoint: breakpointTokens,
   component: componentTokens,
   semantic: semanticTokens,
+  grid: gridTokens,
+  container: containerTokens,
+  aspectRatio: aspectRatioTokens,
+  blur: blurTokens,
+  gradient: gradientTokens,
+  focusRing: focusRingTokens,
+  iconSize: iconSizeTokens,
+  motion: motionTokens,
+  viewport: viewportTokens,
+  accessibility: accessibilityTokens,
+  transform: transformTokens,
+  filter: filterTokens,
 } as const;
 
 export type DesignTokens = typeof designTokens;
