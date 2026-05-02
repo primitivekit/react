@@ -1,4 +1,4 @@
-name: Publish to NPM
+name: Publish to NPM and Update Docs
 
 on:
   push:
@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.get-version.outputs.version }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,6 +25,11 @@ jobs:
           else
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
+      
+      - id: get-version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
   publish:
     needs: check-version
@@ -44,3 +50,11 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Trigger docs update
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOCS_PAT }}
+          repository: primitivekit/docs
+          event-type: library-published
+          client-payload: '{"version": "${{ needs.check-version.outputs.version }}"}'
