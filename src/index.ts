@@ -55,3 +55,16 @@ export type { SkeletonProps, SkeletonVariant, SkeletonCSSVariables } from './com
 // Navigation Components
 export { Link } from './components/Link';
 export type { LinkProps, LinkSize, LinkVariant, LinkCSSVariables } from './components/Link';
+
+export { Tabs } from './components/Tabs';
+export type { TabsProps, TabsSize, TabsVariant, TabsOrientation, TabItem, TabsCSSVariables } from './components/Tabs';
+
+export { Breadcrumb } from './components/Breadcrumb';
+export type { BreadcrumbProps, BreadcrumbSize, BreadcrumbSeparator, BreadcrumbItem, BreadcrumbCSSVariables } from './components/Breadcrumb';
+
+// Overlay Components
+export { Modal } from './components/Modal';
+export type { ModalProps, ModalSize, ModalCSSVariables } from './components/Modal';
+
+export { Tooltip } from './components/Tooltip';
+export type { TooltipProps, TooltipPlacement, TooltipVariant, TooltipCSSVariables } from './components/Tooltip';
